@@ -1,0 +1,40 @@
+<messaging:emailTemplate subject="Post event mail" recipientType="User" relatedToType="ExpenseMember__c">
+<messaging:attachment renderAs="PDF" filename="PostEvent.pdf">
+    <html>
+        <body>
+              Hi  {!relatedTo.Member__r.First_Name__c}
+               {!relatedTo.Member__r.Last_Name__c} , your Contribution details:
+            <table border="1"  width="400px" Class="center">
+              <tr>
+                    <td>Date</td>
+                    <td>{!relatedTo.Expense__r.Date__c} 
+                    </td>
+              </tr>
+                    
+              <tr>
+                    <td>Event Details</td>
+                    <td>{!relatedTo.Expense__r.Event__c} </td>
+              </tr>
+              <tr>
+                    <td>Total Amount</td>
+                    <td>{!relatedTo.Expense__r.Amount__c} </td>
+              </tr>
+              <tr>
+                    <td>Contribution Amount</td>
+                    <td>{!relatedTo.Contribution_Amount__c} </td>
+              </tr>
+            </table>
+              
+            
+        </body>
+    </html>
+
+
+
+
+</messaging:attachment> 
+<messaging:plainTextEmailBody >
+Congratulations!
+This is your new Visualforce Email Template.
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>
